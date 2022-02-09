@@ -1,0 +1,23 @@
+app-id: org.firebirdemus.FirebirdEmu
+runtime: org.kde.Platform
+runtime-version: '5.15'
+sdk: org.kde.Sdk
+command: firebird-emu
+finish-args:
+  - --socket=x11
+
+rename-desktop-file: org.firebird-emus.firebird-emu.desktop
+
+modules:
+  - name: Firebird
+    buildsystem: qmake
+    sources:
+      - type: git
+        url: https://github.com/nspire-emus/firebird.git
+        #tag: v1.5
+        commit: 87868d9df0d8f76b54956f4e223e55a1a56726fe
+  - name: IconRename
+    buildsystem: simple
+    build-commands:
+      - mv /app/share/icons/hicolor/512x512/apps/org.firebird-emus.firebird-emu.png /app/share/icons/hicolor/512x512/apps/org.firebirdemus.FirebirdEmu.png
+      - sed -i 's+Icon=org.firebird-emus.firebird-emu+Icon=org.firebirdemus.FirebirdEmu+' "/app/share/applications/org.firebird-emus.firebird-emu.desktop"
