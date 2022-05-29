@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>com.feralinteractive.gamemode</id>
+  <name>gamemode</name>
+  <summary> Optimise Linux system performance on demand</summary>
+  <url type="homepage">https://github.com/FeralInteractive/gamemode</url>
+  <url type="bugtracker">https://github.com/FeralInteractive/gamemode/issues</url>
+  <project_license>BSD-3-Clause</project_license>
+  <releases>
+    <release version="1.6.1" date="2021-02-18"/>
+  </releases>
+</component>
