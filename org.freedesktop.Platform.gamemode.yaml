@@ -1,16 +1,12 @@
-id: com.feralinteractive.gamemode
-#default-branch: stable
+id: org.freedesktop.Platform.gamemode
+default-branch: stable
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '21.08'
 sdk: org.freedesktop.Sdk
-
 build-extension: true
 appstream-compose: false
 build-options:
-  prefix: /app/utils/gamemode
-  prepend-path: /app/utils/gamemode/bin
-  append-pkg-config-path: /app/utils/gamemode/lib/pkgconfig
-  strip: true
+  prefix: /app/
 modules:
   - name: gamemode
     buildsystem: meson
@@ -20,16 +16,10 @@ modules:
       - -Dwith-examples=false
       - -Dwith-util=false
       - -Dwith-sd-bus-provider=no-daemon
-    sources: &gamemode_sources
+    sources:
       - type: archive
         url: https://github.com/FeralInteractive/gamemode/releases/download/1.6.1/gamemode-1.6.1.tar.xz
-        sha256: 10c2a3f142eae472f5a09e42616e38c666c05b25ca3e61e562a543bb3fda66c5
-  
-  - name: gamemoderun
-    buildsystem: simple
-    build-commands:
-      - install -Dm755 data/gamemoderun -t /app/utils/gamemode/bin/
-    sources: *gamemode_sources
+        sha256: 10c2a3f142eae472f5a09e42616e38c666c05b25ca3e61e562a543bb3fda66c5 
 
   - name: metadata
     buildsystem: simple
@@ -38,4 +28,4 @@ modules:
       - appstream-compose --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} --origin=flatpak ${FLATPAK_ID}
     sources:
       - type: file
-        path: com.feralinteractive.gamemode.metainfo.xml
+        path: org.freedesktop.Platform.gamemode.metainfo.xml
