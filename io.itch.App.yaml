@@ -1,0 +1,63 @@
+app-id: io.itch.App
+runtime: org.freedesktop.Platform
+runtime-version: "22.08"
+sdk: org.freedesktop.Sdk
+base: org.electronjs.Electron2.BaseApp
+base-version: "22.08"
+command: run.sh
+
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.node16
+
+finish-args:
+  - --device=dri # GPU
+  - --socket=x11 # X11
+  - --socket=wayland # Gamescope
+  - --socket=fallback-x11 # Gamescope on X11
+  # =all for controller support
+  - --device=all
+  - --socket=pulseaudio
+  - --share=network
+    # gamescope
+  - --env=PATH=/app/bin:/app/utils/gamescope/bin:/usr/bin
+  - --persist=.itch/
+
+add-extensions:
+  com.valvesoftware.Steam.Utility.gamescope:
+    version: stable
+    add-ld-path: lib
+    directory: utils/gamescope
+
+build-options:
+  append-path: /usr/lib/sdk/node16/bin
+  env:
+    npm_config_nodedir: /usr/lib/sdk/node16
+
+modules:
+  - name: itch
+    buildsystem: simple
+    build-commands:
+      # Install npm dependencies
+      - npm install --offline --cache=$FLATPAK_BUILDER_BUILDDIR/flatpak-node/npm-cache
+      # Build the app; in this example the `dist` script
+      # in package.json runs electron-builder
+      - |
+        . ../flatpak-node/electron-builder-arch-args.sh
+        npm run dist -- $ELECTRON_BUILDER_ARCH_ARGS  --linux --dir
+      # Bundle app and dependencies
+      - cp -a dist/linux*unpacked /app/main
+      # Install app wrapper
+      - install -Dm755 -t /app/bin/ ../run.sh
+      # Install run script
+      - install -Dm755 -t /app/bin/ run.sh
+    sources:
+      - generated-sources.json
+      
+      - type: git
+        url: https://github.com/itchio/itch.git
+        tag: "v25.5.1"
+        
+      - type: script
+        dest-filename: run.sh
+        commands:
+          - zypak-wrapper.sh /app/main/electron-sample-app "$@"
