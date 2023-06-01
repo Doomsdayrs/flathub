@@ -1,9 +1,9 @@
 # Credits to github/nickavem for the script, Doomsdayrs for edits
 
 app-id: com.nonpolynomial.intiface_central
-runtime: org.freedesktop.Platform
-runtime-version: '22.08'
-sdk: org.freedesktop.Sdk
+runtime: org.gnome.Platform
+runtime-version: '43'
+sdk: org.gnome.Sdk
 
 command: intiface_central
 
@@ -22,10 +22,11 @@ modules:
       - mkdir -p /app/bin/
 
       # Move lib to proper directory
-      - mkdir -p /app/lib/
-      - mv lib/* /app/lib/
-      - ln -s /app/lib /app/bin/lib
-      
+      #- mkdir -p /app/lib/
+      #- mv lib/* /app/lib/
+      #- ln /app/lib /app/bin/lib
+      - mv lib /app/bin/
+
       # Move data in
       - mv data /app/bin/
       - install -D intiface_central /app/bin/
