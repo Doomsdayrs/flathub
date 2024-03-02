@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>toys.osc.oscgoesbrrr</id>
+    <launchable type="desktop-id">toys.osc.oscgoesbrrr.desktop</launchable>
+    <name>OscGoesBrrr</name>
+    <metadata_license>FSFAP</metadata_license>
+    <project_license>CC-BY-SA-2.0 </project_license>
+    <summary>Make Haptics go BRRR from VRChat</summary>
+    <description> </description>
+    <developer_name>SenkyDragon</developer_name>
+</component>
