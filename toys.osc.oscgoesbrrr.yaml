@@ -43,7 +43,7 @@ modules:
       - type: git
         url: https://github.com/OscToys/OscGoesBrrr.git
         commit: e3038515f19143cbeeefcccb5de80360dca33423
-        path: main
+        dest: main
       - generated-sources.json
       # Wrapper to launch the app
       - type: script
