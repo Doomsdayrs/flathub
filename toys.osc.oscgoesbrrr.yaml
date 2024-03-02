@@ -22,10 +22,11 @@ modules:
     buildsystem: simple
     build-options:
       env:
-        XDG_CACHE_HOME: /run/build/electron-sample-app/flatpak-node/cache
-        npm_config_cache: /run/build/electron-sample-app/flatpak-node/npm-cache
+        XDG_CACHE_HOME: /run/build/OscGoesBrrr/flatpak-node/cache
+        npm_config_cache: /run/build/OscGoesBrrr/flatpak-node/npm-cache
         npm_config_offline: 'true'
     build-commands:
+      - echo `pwd`
       - jq '.build.linux.target="dir"' <<<$(<package.json) > package.json
       # Install npm dependencies
       - npm install --offline
@@ -49,4 +50,4 @@ modules:
       - type: script
         dest-filename: run.sh
         commands:
-          - zypak-wrapper.sh /app/main/electron-sample-app "$@"
+          - zypak-wrapper.sh /app/main/OscGoesBrrr "$@"
