@@ -4393,12 +4393,6 @@
     },
     {
         "type": "inline",
-        "contents": "550fb27969a73326c153a114a4ce678c4d07730c\t{\"key\": \"make-fetch-happen:request-cache:https://registry.npmjs.org/app-builder-bin/-/app-builder-bin-4.0.0.tgz\", \"integrity\": \"sha512-xwdG0FJPQMe0M0UA4Tz0zEB8rBJTRA5a476ZawAqiBkMv16GRK5xpXThOjMaEOFnZ6zabejjG4J3da0SXG63KA==\", \"time\": 0, \"size\": 63835019, \"metadata\": {\"url\": \"https://registry.npmjs.org/app-builder-bin/-/app-builder-bin-4.0.0.tgz\", \"reqHeaders\": {}, \"resHeaders\": {}}}",
-        "dest-filename": "9e7d0c331658855db102ab0207a1587522da9bdb5a151d0d222fbf09f8d6",
-        "dest": "flatpak-node/npm-cache/_cacache/index-v5/0f/cd"
-    },
-    {
-        "type": "inline",
         "contents": "55dc518ad4ed2a09b7c89ca41ae70c63b34d4aeb\t{\"key\": \"make-fetch-happen:request-cache:https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz\", \"integrity\": \"sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==\", \"time\": 0, \"size\": 2313, \"metadata\": {\"url\": \"https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz\", \"reqHeaders\": {}, \"resHeaders\": {}}}",
         "dest-filename": "6fe07a61a892f6f6531a5c2b91b04027042da092d88fd7fc49eea54646d0",
         "dest": "flatpak-node/npm-cache/_cacache/index-v5/49/eb"
@@ -5302,6 +5296,12 @@
         "contents": "ab5d1944089baf0a16adee67b9a6c27fe3ee7e6a\t{\"key\": \"make-fetch-happen:request-cache:https://registry.npmjs.org/stack-generator/-/stack-generator-2.0.10.tgz\", \"integrity\": \"sha512-mwnua/hkqM6pF4k8SnmZ2zfETsRUpWXREfA/goT8SLCV4iOFa4bzOX2nDipWAZFPTjLvQB82f5yaodMVhK0yJQ==\", \"time\": 0, \"size\": 5823, \"metadata\": {\"url\": \"https://registry.npmjs.org/stack-generator/-/stack-generator-2.0.10.tgz\", \"reqHeaders\": {}, \"resHeaders\": {}}}",
         "dest-filename": "ce9a7c16cba2fcb6d26bd29cdf85b1a197fcab728779fbd311907ff91fe4",
         "dest": "flatpak-node/npm-cache/_cacache/index-v5/fa/f9"
+    },
+    {
+        "type": "inline",
+        "contents": "ab7b643aea143a99512bbcac73b66f1fbefaf404\t{\"key\": \"make-fetch-happen:request-cache:https://registry.npmjs.org/app-builder-bin/-/app-builder-bin-4.0.0.tgz\", \"integrity\": \"sha512-xwdG0FJPQMe0M0UA4Tz0zEB8rBJTRA5a476ZawAqiBkMv16GRK5xpXThOjMaEOFnZ6zabejjG4J3da0SXG63KA==\", \"time\": 0, \"size\": 45097602, \"metadata\": {\"url\": \"https://registry.npmjs.org/app-builder-bin/-/app-builder-bin-4.0.0.tgz\", \"reqHeaders\": {}, \"resHeaders\": {}}}",
+        "dest-filename": "9e7d0c331658855db102ab0207a1587522da9bdb5a151d0d222fbf09f8d6",
+        "dest": "flatpak-node/npm-cache/_cacache/index-v5/0f/cd"
     },
     {
         "type": "inline",
