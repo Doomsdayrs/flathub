@@ -1,0 +1,22 @@
+app-id: com.styluslabs.Write
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
+command: run.sh
+separate-locales: false
+finish-args:
+  - --share=ipc
+  - --socket=x11
+
+modules:
+  - name: Write
+    buildsystem: simple
+    build-commands:
+      - sed -i 's/SDL_config.h/SDL2\/SDL_config.h/g' ugui/*.h
+      - sed -i 's/SDL.h/SDL2\/SDL.h/g' ugui/*.h
+      - sed -i 's/SDL_syswm.h/SDL2\/SDL_syswm.h/g' syncscribble/linux/*.c
+      - cd syncscribble && make DEBUG=0 -j `nproc`
+    sources:
+      - type: git
+        url: https://github.com/styluslabs/Write.git
+        commit: b13572e2dd6a87af35cd3edde92c9144a6dd8a2b
