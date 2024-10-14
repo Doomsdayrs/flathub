@@ -2,20 +2,30 @@ app-id: com.styluslabs.Write
 runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
-command: run.sh
+command: Write
 separate-locales: false
 finish-args:
   - --share=ipc
   - --socket=x11
+  - --device=dri
 
 modules:
   - name: Write
     buildsystem: simple
     build-commands:
-      - sed -i 's/SDL_config.h/SDL2\/SDL_config.h/g' ugui/*.h
-      - sed -i 's/SDL.h/SDL2\/SDL.h/g' ugui/*.h
-      - sed -i 's/SDL_syswm.h/SDL2\/SDL_syswm.h/g' syncscribble/linux/*.c
-      - cd syncscribble && make DEBUG=0 -j `nproc`
+      - cd syncscribble && make DEBUG=0 -j `nproc` USE_SYSTEM_SDL=1
+
+      # Create paths
+      - mkdir -p "${FLATPAK_DEST}/bin"
+#      - mkdir -p "${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/"
+
+      # Install files
+      - install -Dm644 scribbleres/icons/write_icon_flat.svg "${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg"
+      - install -Dm644 scribbleres/linux/Write.desktop "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+      ## Edit Desktop File
+      - desktop-file-edit --set-key="Icon" --set-value="${FLATPAK_ID}" "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+      - desktop-file-edit --set-key="Exec" --set-value="Write" "${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop"
+      - install syncscribble/Release/Write "${FLATPAK_DEST}/bin/"
     sources:
       - type: git
         url: https://github.com/styluslabs/Write.git
